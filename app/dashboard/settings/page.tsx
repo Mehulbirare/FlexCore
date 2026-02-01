@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useRef } from "react"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -9,11 +10,20 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Switch } from "@/components/ui/switch"
 import { MOCK_USER } from "@/lib/mock-data"
-import { Bell, Moon, Sun, User, Shield, CreditCard, Cog, Monitor, Wifi, Lock } from "lucide-react"
+import { Bell, Moon, Sun, User, Shield, CreditCard, Cog, Monitor, Wifi, Lock, LogOut } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import { toast } from "sonner"
 
 export default function SettingsPage() {
+    const router = useRouter()
     const [activeTab, setActiveTab] = useState("profile")
+
+    const handleLogout = () => {
+        toast.info("Terminating Session", { description: "Safely logging you out..." })
+        setTimeout(() => {
+            router.push("/login")
+        }, 1000)
+    }
 
     // State for Avatar
     const [avatar, setAvatar] = useState(MOCK_USER.avatar)
@@ -101,6 +111,20 @@ export default function SettingsPage() {
                                 <p className="text-xs text-neutral-400">Require secondary verification for system entry.</p>
                             </div>
                             <Switch className="data-[state=checked]:bg-[#E11D48]" />
+                        </div>
+                        <div className="flex items-center justify-between rounded-lg border border-neutral-800 bg-neutral-900 p-4 hover:bg-neutral-800/50 transition-colors">
+                            <div className="space-y-0.5">
+                                <Label className="text-base text-white font-bold flex items-center gap-2">Protocol Termination</Label>
+                                <p className="text-xs text-neutral-400">Securely sign out of the current station.</p>
+                            </div>
+                            <Button
+                                onClick={handleLogout}
+                                variant="outline"
+                                size="sm"
+                                className="border-[#E11D48]/30 text-[#E11D48] hover:bg-[#E11D48] hover:text-white font-bold uppercase tracking-wider text-[10px]"
+                            >
+                                <LogOut className="mr-2 h-3 w-3" /> Log Out
+                            </Button>
                         </div>
                         <div className="flex items-center justify-between rounded-lg border border-red-500/20 bg-red-500/5 p-4">
                             <div className="space-y-0.5">

@@ -1,7 +1,8 @@
 "use client"
 
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { Calendar, Home, Inbox, Search, Settings, Users, Dumbbell, BarChart3, Wallet, Box, Zap, LogOut } from "lucide-react"
+import { toast } from "sonner"
 
 import {
     Sidebar,
@@ -54,6 +55,14 @@ const items = [
 
 export function AppSidebar() {
     const pathname = usePathname()
+    const router = useRouter()
+
+    const handleLogout = () => {
+        toast.info("Terminating Session", { description: "Safely logging you out..." })
+        setTimeout(() => {
+            router.push("/login")
+        }, 1000)
+    }
 
     return (
         <Sidebar variant="sidebar" collapsible="icon" className="border-r border-[#E11D48]/20 bg-black">
@@ -112,9 +121,12 @@ export function AppSidebar() {
 
             <SidebarFooter className="border-t border-white/5 bg-black p-0">
                 <div className="p-4">
-                    <div className="flex items-center gap-3 p-2 rounded-xl hover:bg-white/5 transition-colors cursor-pointer group">
+                    <div
+                        className="flex items-center gap-3 p-2 rounded-xl hover:bg-[#E11D48]/10 hover:border-[#E11D48]/30 border border-transparent transition-all cursor-pointer group"
+                        onClick={handleLogout}
+                    >
                         <div className="relative">
-                            <Avatar className="h-10 w-10 border-2 border-[#E11D48]/20">
+                            <Avatar className="h-10 w-10 border-2 border-[#E11D48]/20 group-hover:border-[#E11D48]/50 transition-colors">
                                 <AvatarImage src="https://github.com/shadcn.png" alt="Admin" />
                                 <AvatarFallback className="bg-neutral-800 text-white">AD</AvatarFallback>
                             </Avatar>
@@ -124,7 +136,9 @@ export function AppSidebar() {
                             <span className="text-sm font-bold text-white group-hover:text-[#E11D48] transition-colors">Admin User</span>
                             <span className="text-[10px] uppercase font-bold tracking-wider text-neutral-500">Super Admin</span>
                         </div>
-                        <LogOut className="ml-auto h-4 w-4 text-neutral-500 hover:text-white opacity-0 group-hover:opacity-100 transition-opacity group-data-[collapsible=icon]:hidden" />
+                        <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity group-data-[collapsible=icon]:hidden">
+                            <LogOut className="h-4 w-4 text-[#E11D48]" />
+                        </div>
                     </div>
                 </div>
             </SidebarFooter>
