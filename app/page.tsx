@@ -68,9 +68,11 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Button className="h-16 px-12 bg-white text-black hover:bg-neutral-200 rounded-none text-lg font-bold uppercase tracking-wider skew-x-[-12deg] group">
-                <span className="skew-x-[12deg] flex items-center gap-2">Start Free Trial <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" /></span>
-              </Button>
+              <Link href="/login">
+                <Button className="h-16 px-12 bg-white text-black hover:bg-neutral-200 rounded-none text-lg font-bold uppercase tracking-wider skew-x-[-12deg] group">
+                  <span className="skew-x-[12deg] flex items-center gap-2">Start Free Trial <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" /></span>
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div >

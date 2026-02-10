@@ -34,13 +34,23 @@ export default function LoginPage() {
         // Simulate backend delay
         await new Promise(resolve => setTimeout(resolve, 1500))
 
-        if (email && password) {
-            toast.success("Access Granted", { description: "Welcome to the Arena." })
+        if (email === "admin@gmail.com" && password === "admin@123") {
+            toast.success("Command Access Granted", { description: "Welcome back, Administrator." })
             router.push("/dashboard")
+        } else if (email && password) {
+            toast.success("Member Access Granted", { description: "Welcome to FlexCore." })
+            router.push("/client-dashboard")
         } else {
             setIsLoading(false)
             toast.error("Access Denied", { description: "Invalid credentials." })
         }
+    }
+
+    const handleGuestLogin = async () => {
+        setIsLoading(true)
+        await new Promise(resolve => setTimeout(resolve, 1000))
+        toast.success("Guest Access Granted", { description: "Starting your free trial..." })
+        router.push("/client-dashboard")
     }
 
     const handlePhoneLoginStart = async (e: React.FormEvent) => {
@@ -215,6 +225,21 @@ export default function LoginPage() {
                                         >
                                             <span className="skew-x-[3deg] flex items-center justify-center gap-2">
                                                 {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <>Sign In <Zap className="h-4 w-4 fill-white" /></>}
+                                            </span>
+                                        </Button>
+                                        <div className="relative flex py-2 items-center">
+                                            <div className="flex-grow border-t border-white/10"></div>
+                                            <span className="flex-shrink-0 mx-4 text-xs text-neutral-500 uppercase font-bold tracking-widest">Or</span>
+                                            <div className="flex-grow border-t border-white/10"></div>
+                                        </div>
+                                        <Button
+                                            type="button"
+                                            onClick={handleGuestLogin}
+                                            disabled={isLoading}
+                                            className="w-full h-12 bg-white/5 hover:bg-white/10 text-white border border-white/10 font-bold uppercase tracking-widest rounded-none transition-all skew-x-[-3deg]"
+                                        >
+                                            <span className="skew-x-[3deg] flex items-center justify-center gap-2">
+                                                Try Guest Pass <ArrowLeft className="h-4 w-4 rotate-180" />
                                             </span>
                                         </Button>
                                     </form>
