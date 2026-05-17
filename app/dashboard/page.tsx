@@ -31,11 +31,11 @@ const chartConfig = {
 
 export default function DashboardPage() {
     return (
-        <div className="space-y-8 p-8 bg-black/20 min-h-screen">
+        <div className="space-y-8">
             {/* Header */}
-            <div className="flex items-end justify-between">
+            <div className="flex flex-wrap items-end justify-between gap-3">
                 <div>
-                    <h2 className="text-3xl font-black uppercase tracking-tight text-white mb-2" style={{ fontFamily: 'var(--font-outfit)' }}>
+                    <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white mb-2" style={{ fontFamily: 'var(--font-outfit)' }}>
                         Command Center
                     </h2>
                     <p className="text-neutral-400">Real-time performance metrics.</p>
@@ -72,9 +72,9 @@ export default function DashboardPage() {
                             </CardHeader>
                             <CardContent className="relative z-10">
                                 <div className="text-2xl font-bold text-white mb-1" style={{ fontFamily: 'var(--font-outfit)' }}>{item.value}</div>
-                                <p className={`text-xs font-mono flex items-center ${item.trend.startsWith('+') || item.trend.startsWith('-') && item.title !== "Churn Rate" ? "text-emerald-500" : "text-[#E11D48]"}`}>
-                                    {item.trendUp ? <ArrowUpRight className="h-3 w-3 mr-1" /> : <ArrowDownRight className="h-3 w-3 mr-1" />}
-                                    <span className="opacity-80">from last month</span>
+                                <p className={`text-xs font-mono flex items-center gap-1 ${item.trendUp ? "text-emerald-500" : "text-[#E11D48]"}`}>
+                                    {item.trendUp ? <ArrowUpRight className="h-3 w-3" /> : <ArrowDownRight className="h-3 w-3" />}
+                                    {item.trend} <span className="opacity-60">from last month</span>
                                 </p>
                             </CardContent>
                             {/* Hover Glow */}
@@ -84,10 +84,10 @@ export default function DashboardPage() {
                 ))}
             </div>
 
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-7">
+            <div className="grid gap-6 lg:grid-cols-7">
                 {/* Main Chart */}
                 <motion.div
-                    className="col-span-4"
+                    className="col-span-full lg:col-span-4"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.4 }}
@@ -98,7 +98,7 @@ export default function DashboardPage() {
                             <CardDescription>Financial performance over time.</CardDescription>
                         </CardHeader>
                         <CardContent className="pl-0">
-                            <ChartContainer config={chartConfig} className="h-[350px] w-full">
+                            <ChartContainer config={chartConfig} className="h-[220px] md:h-[350px] w-full">
                                 <AreaChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                                     <defs>
                                         <linearGradient id="fillRevenue" x1="0" y1="0" x2="0" y2="1">
@@ -139,7 +139,7 @@ export default function DashboardPage() {
 
                 {/* Recent Members */}
                 <motion.div
-                    className="col-span-3"
+                    className="col-span-full lg:col-span-3"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.5 }}

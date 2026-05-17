@@ -11,7 +11,7 @@ import { motion } from "framer-motion"
 
 export default function TrainersPage() {
     return (
-        <div className="relative space-y-8 p-8 min-h-screen">
+        <div className="relative space-y-8">
             {/* Page Specific Background */}
             <div
                 className="absolute inset-0 z-0 opacity-15 pointer-events-none"
@@ -26,14 +26,14 @@ export default function TrainersPage() {
                 {/* Header */}
                 <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
                     <div>
-                        <h2 className="text-4xl font-black uppercase tracking-tight text-white mb-2 flex items-center gap-3" style={{ fontFamily: 'var(--font-outfit)' }}>
+                        <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tight text-white mb-2 flex items-center gap-3" style={{ fontFamily: 'var(--font-outfit)' }}>
                             Coaching Staff <Trophy className="h-8 w-8 text-[#E11D48]" />
                         </h2>
                         <p className="text-neutral-400 font-medium">Manage expert trainers and performance specialists.</p>
                     </div>
                     <Button className="h-10 bg-[#E11D48] hover:bg-[#be123c] text-white font-bold uppercase tracking-wide skew-x-[-10deg] shadow-[0_0_20px_rgba(225,29,72,0.3)] hover:shadow-[0_0_30px_rgba(225,29,72,0.5)] transition-all">
                         <span className="skew-x-[10deg] flex items-center">
-                            <Plus className="mr-2 h-4 w-4 font-bold" /> Recuit Trainer
+                            <Plus className="mr-2 h-4 w-4 font-bold" /> Recruit Trainer
                         </span>
                     </Button>
                 </div>

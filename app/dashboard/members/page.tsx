@@ -7,12 +7,19 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { MOCK_MEMBERS } from "@/lib/mock-data"
 import { Search, Plus, MoreHorizontal, FileDown, Shield, Users, Activity } from "lucide-react"
+
+const HEATMAP_HEIGHTS = [
+    45, 72, 30, 88, 55, 25, 93, 40, 65, 20,
+    78, 35, 60, 85, 50, 15, 70, 45, 90, 30,
+    55, 80, 25, 65, 40, 95, 35, 75, 50, 20,
+    85, 45, 60, 30, 70, 55, 40, 80, 25, 65,
+]
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { motion } from "framer-motion"
 
 export default function MembersPage() {
     return (
-        <div className="relative space-y-8 p-8 min-h-screen">
+        <div className="relative space-y-8">
             {/* Page Specific Background */}
             <div
                 className="absolute inset-0 z-0 opacity-20 pointer-events-none"
@@ -27,12 +34,12 @@ export default function MembersPage() {
                 {/* Header */}
                 <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
                     <div>
-                        <h2 className="text-4xl font-black uppercase tracking-tight text-white mb-2 flex items-center gap-3" style={{ fontFamily: 'var(--font-outfit)' }}>
+                        <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tight text-white mb-2 flex items-center gap-3" style={{ fontFamily: 'var(--font-outfit)' }}>
                             Elite Roster <Users className="h-8 w-8 text-[#E11D48]" />
                         </h2>
                         <p className="text-neutral-400 font-medium">Manage active athletes and membership statuses.</p>
                     </div>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-wrap items-center gap-3">
                         <Button variant="outline" className="h-10 border-[#E11D48]/20 bg-black/40 hover:bg-[#E11D48]/10 text-white font-bold uppercase tracking-wide transition-all">
                             <FileDown className="mr-2 h-4 w-4 text-[#E11D48]" /> Export Data
                         </Button>
@@ -59,18 +66,15 @@ export default function MembersPage() {
                         </h3>
                         {/* Mock Heatmap Visual */}
                         <div className="flex items-end justify-between h-24 gap-1">
-                            {Array.from({ length: 40 }).map((_, i) => {
-                                const height = Math.random() * 100;
-                                return (
-                                    <motion.div
-                                        key={i}
-                                        initial={{ height: 0 }}
-                                        animate={{ height: `${height}%` }}
-                                        transition={{ duration: 1, delay: i * 0.02 }}
-                                        className={`w-full rounded-t-sm ${height > 80 ? 'bg-[#E11D48] shadow-[0_0_10px_#E11D48]' : 'bg-white/10'}`}
-                                    />
-                                )
-                            })}
+                            {HEATMAP_HEIGHTS.map((height, i) => (
+                                <motion.div
+                                    key={i}
+                                    initial={{ height: 0 }}
+                                    animate={{ height: `${height}%` }}
+                                    transition={{ duration: 1, delay: i * 0.02 }}
+                                    className={`w-full rounded-t-sm ${height > 80 ? 'bg-[#E11D48] shadow-[0_0_10px_#E11D48]' : 'bg-white/10'}`}
+                                />
+                            ))}
                         </div>
                     </div>
                     <div className="col-span-1 rounded-xl border border-white/5 bg-neutral-900/40 backdrop-blur-md p-6 flex flex-col justify-center items-center">
@@ -88,8 +92,8 @@ export default function MembersPage() {
                 </motion.div>
 
                 {/* Filters */}
-                <div className="flex items-center gap-4 mb-6 bg-neutral-900/50 p-1 rounded-lg border border-white/5 w-fit">
-                    <div className="relative flex-1 min-w-[300px]">
+                <div className="flex items-center gap-4 mb-6 bg-neutral-900/50 p-1 rounded-lg border border-white/5 w-full max-w-md">
+                    <div className="relative flex-1 min-w-0">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-500" />
                         <Input
                             placeholder="Search by name, email or ID..."
@@ -105,6 +109,7 @@ export default function MembersPage() {
                     transition={{ duration: 0.4 }}
                     className="rounded-xl border border-white/5 bg-neutral-900/40 backdrop-blur-md overflow-hidden"
                 >
+                    <div className="overflow-x-auto">
                     <Table>
                         <TableHeader className="bg-black/40">
                             <TableRow className="border-white/5 hover:bg-transparent">
@@ -186,6 +191,7 @@ export default function MembersPage() {
                             ))}
                         </TableBody>
                     </Table>
+                    </div>
                 </motion.div>
             </div>
         </div>

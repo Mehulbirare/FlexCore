@@ -10,7 +10,7 @@ import { motion } from "framer-motion"
 
 export default function FinancePage() {
     return (
-        <div className="relative space-y-8 p-8 min-h-screen">
+        <div className="relative space-y-8">
             {/* Page Specific Background */}
             <div
                 className="absolute inset-0 z-0 opacity-15 pointer-events-none"
@@ -24,7 +24,7 @@ export default function FinancePage() {
             <div className="relative z-10 space-y-8">
                 {/* Live Ticker */}
                 <div className="w-full bg-[#E11D48]/10 border-y border-[#E11D48]/20 overflow-hidden py-2 mb-8">
-                    <div className="flex animate-infinite-scroll whitespace-nowrap gap-12 text-xs font-mono font-bold text-[#E11D48] uppercase tracking-wider">
+                    <div className="flex animate-infinite-scroll whitespace-nowrap gap-6 md:gap-12 text-[10px] md:text-xs font-mono font-bold text-[#E11D48] uppercase tracking-wider">
                         {Array.from({ length: 10 }).map((_, i) => (
                             <span key={i} className="flex items-center gap-2">
                                 <Activity className="h-3 w-3" /> FLEXCOIN MARKET CAP: $4.2M <span className="text-emerald-500">▲ 2.4%</span>
@@ -38,12 +38,12 @@ export default function FinancePage() {
                 {/* Header */}
                 <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
                     <div>
-                        <h2 className="text-4xl font-black uppercase tracking-tight text-white mb-2 flex items-center gap-3" style={{ fontFamily: 'var(--font-outfit)' }}>
+                        <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tight text-white mb-2 flex items-center gap-3" style={{ fontFamily: 'var(--font-outfit)' }}>
                             Financial Intelligence <Wallet className="h-8 w-8 text-[#E11D48]" />
                         </h2>
                         <p className="text-neutral-400 font-medium">Real-time revenue tracking and expense management.</p>
                     </div>
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-wrap items-center gap-3">
                         <Button variant="outline" className="h-10 border-[#E11D48]/20 bg-black/40 hover:bg-[#E11D48]/10 text-white font-bold uppercase tracking-wide transition-all">
                             <Filter className="mr-2 h-4 w-4 text-[#E11D48]" /> Filter
                         </Button>
@@ -97,12 +97,13 @@ export default function FinancePage() {
                     transition={{ delay: 0.3 }}
                     className="rounded-xl border border-white/5 bg-neutral-900/40 backdrop-blur-md overflow-hidden"
                 >
-                    <div className="p-6 border-b border-white/5 flex justify-between items-center bg-black/20">
-                        <h3 className="font-bold text-lg text-white uppercase tracking-wide">Recent Transactions</h3>
-                        <Button variant="ghost" size="sm" className="text-xs font-bold uppercase text-[#E11D48] hover:text-white hover:bg-white/5">
-                            View All Activity &rarr;
+                    <div className="p-4 md:p-6 border-b border-white/5 flex justify-between items-center bg-black/20 gap-3">
+                        <h3 className="font-bold text-base md:text-lg text-white uppercase tracking-wide">Recent Transactions</h3>
+                        <Button variant="ghost" size="sm" className="text-xs font-bold uppercase text-[#E11D48] hover:text-white hover:bg-white/5 shrink-0">
+                            View All &rarr;
                         </Button>
                     </div>
+                    <div className="overflow-x-auto">
                     <Table>
                         <TableHeader className="bg-black/40">
                             <TableRow className="border-white/5 hover:bg-transparent">
@@ -147,6 +148,7 @@ export default function FinancePage() {
                             ))}
                         </TableBody>
                     </Table>
+                    </div>
                 </motion.div>
             </div>
         </div>

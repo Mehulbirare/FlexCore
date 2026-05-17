@@ -203,7 +203,7 @@ export default function SettingsPage() {
     )
 
     return (
-        <div className="relative space-y-8 p-8 min-h-screen">
+        <div className="relative space-y-8">
             {/* Page Specific Background */}
             <div
                 className="absolute inset-0 z-0 opacity-20 pointer-events-none"
@@ -218,7 +218,7 @@ export default function SettingsPage() {
                 {/* Header */}
                 <div className="flex flex-col gap-6">
                     <div>
-                        <h2 className="text-4xl font-black uppercase tracking-tight text-white mb-2 flex items-center gap-3" style={{ fontFamily: 'var(--font-outfit)' }}>
+                        <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tight text-white mb-2 flex items-center gap-3" style={{ fontFamily: 'var(--font-outfit)' }}>
                             System Protocols <Cog className="h-8 w-8 text-[#E11D48] animate-spin-slow" />
                         </h2>
                         <p className="text-neutral-400 font-medium">Configure global parameters and user preferences.</p>
@@ -228,7 +228,7 @@ export default function SettingsPage() {
 
                 <div className="flex flex-col gap-8 md:flex-row h-full">
                     <aside className="md:w-1/5">
-                        <nav className="flex flex-col space-y-1">
+                        <nav className="flex flex-row overflow-x-auto pb-1 md:flex-col md:overflow-visible md:pb-0 space-x-1 md:space-x-0 md:space-y-1">
                             {[
                                 { id: 'profile', icon: User, label: 'Identity' },
                                 { id: 'account', icon: Shield, label: 'Security' },
@@ -238,7 +238,7 @@ export default function SettingsPage() {
                                 <Button
                                     key={item.id}
                                     variant="ghost"
-                                    className={`justify-start h-12 uppercase tracking-wider font-bold text-xs transition-all ${activeTab === item.id
+                                    className={`justify-start h-12 shrink-0 md:w-full uppercase tracking-wider font-bold text-xs transition-all ${activeTab === item.id
                                         ? 'bg-[#E11D48]/10 text-[#E11D48] border-l-2 border-[#E11D48]'
                                         : 'hover:bg-white/5 text-neutral-500 hover:text-white border-l-2 border-transparent'
                                         }`}

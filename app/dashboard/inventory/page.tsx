@@ -14,7 +14,7 @@ export default function InventoryPage() {
     const [hoveredItem, setHoveredItem] = useState<typeof MOCK_INVENTORY[0] | null>(null)
 
     return (
-        <div className="relative space-y-8 p-8 min-h-screen">
+        <div className="relative space-y-8">
             {/* Page Specific Background */}
             <div
                 className="absolute inset-0 z-0 opacity-10 pointer-events-none"
@@ -29,13 +29,13 @@ export default function InventoryPage() {
                 {/* Header */}
                 <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
                     <div>
-                        <h2 className="text-4xl font-black uppercase tracking-tight text-white mb-2 flex items-center gap-3" style={{ fontFamily: 'var(--font-outfit)' }}>
+                        <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tight text-white mb-2 flex items-center gap-3" style={{ fontFamily: 'var(--font-outfit)' }}>
                             Gear Arsenal <Box className="h-8 w-8 text-[#E11D48]" />
                         </h2>
                         <p className="text-neutral-400 font-medium">Track equipment availability and merchandise stock.</p>
                     </div>
-                    <div className="flex items-center gap-3">
-                        <div className="relative flex-1 min-w-[250px]">
+                    <div className="flex flex-wrap items-center gap-3">
+                        <div className="relative flex-1 min-w-0 w-full sm:w-auto">
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-500" />
                             <Input
                                 placeholder="Search inventory..."
@@ -59,6 +59,7 @@ export default function InventoryPage() {
                         className="lg:col-span-2 rounded-xl border border-white/5 bg-neutral-900/40 backdrop-blur-md overflow-hidden relative"
                     >
                         <div className="absolute top-0 w-full h-1 bg-gradient-to-r from-transparent via-[#E11D48] to-transparent opacity-50" />
+                        <div className="overflow-x-auto">
                         <Table>
                             <TableHeader className="bg-black/40">
                                 <TableRow className="border-white/5 hover:bg-transparent">
@@ -115,6 +116,7 @@ export default function InventoryPage() {
                                 ))}
                             </TableBody>
                         </Table>
+                        </div>
                     </motion.div>
 
                     {/* Holographic Preview Panel */}
