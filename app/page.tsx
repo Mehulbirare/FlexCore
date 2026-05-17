@@ -214,34 +214,118 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 h-auto md:h-[600px]">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 h-auto md:h-[600px]">
+            {/* Card 1: Community Video Card */}
             <motion.div
-              whileHover={{ scale: 0.98 }}
-              className="h-[300px] md:h-full md:col-span-3 relative overflow-hidden group"
+              whileHover={{ scale: 0.99 }}
+              className="h-[350px] md:h-full md:col-span-3 relative overflow-hidden group border border-white/5 rounded-none cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
             >
+              {/* Video Component */}
               <video
                 src="/community-video.mp4"
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 filter brightness-90 group-hover:brightness-100 grayscale group-hover:grayscale-0"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-6 flex items-end">
-                <h3 className="text-2xl font-bold uppercase text-white">Community</h3>
+              
+              {/* Cinematic Vignette Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent transition-opacity duration-500 group-hover:opacity-90" />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
+
+              {/* HUD: Upper Right Corner (Live stats pill) */}
+              <div className="absolute top-6 right-6 z-20 flex items-center gap-3 bg-black/60 backdrop-blur-md border border-white/10 px-4 py-2 skew-x-[-12deg]">
+                <span className="skew-x-[12deg] flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#E11D48]">
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#E11D48] animate-ping shrink-0" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#E11D48] absolute shrink-0" />
+                  Live Arena Feed
+                </span>
+              </div>
+
+              {/* HUD: Upper Left Corner (Telemetry ID) */}
+              <div className="absolute top-6 left-6 z-20 font-mono text-[10px] text-white/40 tracking-wider hidden sm:block">
+                SYS_LOC: // ARENA_01 // SEC_C
+              </div>
+
+              {/* HUD: Lower Content Block */}
+              <div className="absolute inset-x-0 bottom-0 z-20 p-8 flex flex-col justify-end h-1/2">
+                {/* Meta details hidden by default, slide up on hover */}
+                <div className="transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out mb-4">
+                  <div className="flex flex-wrap gap-4 text-xs font-mono text-neutral-400">
+                    <span className="flex items-center gap-1.5"><Users className="w-3.5 h-3.5 text-[#E11D48]" /> 1,842 Active Members</span>
+                    <span className="text-white/20">|</span>
+                    <span>Peak Energy: 98.7%</span>
+                    <span className="text-white/20">|</span>
+                    <span className="text-[#E11D48]">Class in Progress</span>
+                  </div>
+                </div>
+
+                <div className="flex justify-between items-end">
+                  <div>
+                    <div className="text-sm font-mono text-[#E11D48] mb-1 tracking-[0.3em] font-bold">[ COMMUNITY / 01 ]</div>
+                    <h3 className="text-3xl sm:text-4xl font-black uppercase text-white tracking-tighter" style={{ fontFamily: 'var(--font-outfit)' }}>
+                      The Collective Force
+                    </h3>
+                  </div>
+                  
+                  {/* Subtle chevron indicator */}
+                  <div className="h-10 w-10 bg-white/10 hover:bg-[#E11D48] transition-colors duration-300 flex items-center justify-center border border-white/10 group-hover:scale-110 transform duration-300">
+                    <ArrowRight className="w-5 h-5 text-white transition-transform group-hover:translate-x-1" />
+                  </div>
+                </div>
               </div>
             </motion.div>
+
+            {/* Card 2: Equipment Video Card */}
             <motion.div
-              whileHover={{ scale: 0.98 }}
-              className="h-[200px] md:h-full md:col-span-1 relative overflow-hidden group"
+              whileHover={{ scale: 0.99 }}
+              className="h-[350px] md:h-full md:col-span-1 relative overflow-hidden group border border-white/5 rounded-none cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
             >
-              <img
-                src="https://images.pexels.com/photos/1552249/pexels-photo-1552249.jpeg"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
-                alt="Equipment"
+              {/* Video Component */}
+              <video
+                src="/equipment-video.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105 filter brightness-90 group-hover:brightness-100 grayscale group-hover:grayscale-0"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-6 flex items-end">
-                <h3 className="text-xl font-bold uppercase text-white">Equipment</h3>
+              
+              {/* Cinematic Vignette Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent transition-opacity duration-500 group-hover:opacity-90" />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
+
+              {/* HUD: Upper Right Corner (Live specs pill) */}
+              <div className="absolute top-6 right-6 z-20 flex items-center gap-3 bg-black/60 backdrop-blur-md border border-white/10 px-3 py-1.5 skew-x-[-12deg]">
+                <span className="skew-x-[12deg] text-[10px] font-bold uppercase tracking-widest text-blue-500 flex items-center gap-1.5">
+                  <Zap className="w-3.5 h-3.5 fill-blue-500 animate-pulse" />
+                  Power Rig
+                </span>
+              </div>
+
+              {/* HUD: Lower Content Block */}
+              <div className="absolute inset-x-0 bottom-0 z-20 p-6 flex flex-col justify-end h-1/2">
+                {/* Meta details hidden by default, slide up on hover */}
+                <div className="transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out mb-4">
+                  <p className="text-xs font-mono text-neutral-400 leading-relaxed">
+                    Heavy-duty biomechanically optimized machinery built for zero compromise.
+                  </p>
+                </div>
+
+                <div className="flex justify-between items-end">
+                  <div>
+                    <div className="text-xs font-mono text-blue-500 mb-1 tracking-[0.3em] font-bold">[ EQUIPMENT / 02 ]</div>
+                    <h3 className="text-2xl font-black uppercase text-white tracking-tighter" style={{ fontFamily: 'var(--font-outfit)' }}>
+                      Rig Systems
+                    </h3>
+                  </div>
+                  
+                  {/* Subtle chevron indicator */}
+                  <div className="h-8 w-8 bg-white/10 hover:bg-blue-600 transition-colors duration-300 flex items-center justify-center border border-white/10 group-hover:scale-110 transform duration-300">
+                    <ArrowRight className="w-4 h-4 text-white transition-transform group-hover:translate-x-0.5" />
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -301,80 +385,118 @@ export default function Home() {
       </section>
 
       {/* NEW SECTION: Mobile Command */}
-      <section className="py-32 bg-[#E11D48] text-white relative overflow-hidden">
-        {/* Decorative patterned background */}
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
+      <section className="relative bg-black text-white" style={{ height: '100vh', minHeight: '700px' }}>
 
-        <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center relative z-10">
-          <div>
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <Badge className="bg-black text-white hover:bg-black/80 border-none rounded-none uppercase tracking-widest py-2 px-4 mb-6">Mobile First</Badge>
-              <h2 className="text-4xl sm:text-5xl md:text-7xl font-black uppercase leading-[0.9] mb-8" style={{ fontFamily: 'var(--font-outfit)' }}>
-                Command <br /> From <br /> Anywhere
-              </h2>
-              <p className="text-lg sm:text-xl font-medium mb-10 max-w-md leading-relaxed text-white/90">
-                The entire FlexCore operating system in your pocket. Manage staff, check revenue, and approve workflows on the go.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-white text-black hover:bg-neutral-200 h-14 px-8 rounded-none uppercase font-bold tracking-wider w-full sm:w-auto">
-                  <Smartphone className="mr-2 h-5 w-5" /> iOS App
-                </Button>
-                <Button variant="outline" className="border-white text-white hover:bg-white hover:text-black h-14 px-8 rounded-none uppercase font-bold tracking-wider w-full sm:w-auto">
-                  Android
-                </Button>
-              </div>
-            </motion.div>
+        {/* RIGHT HALF: Video — absolutely fills right 50% */}
+        <div className="absolute top-0 right-0 w-full md:w-1/2 h-full z-0 overflow-hidden">
+          <video
+            src="/62629949.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
+          {/* left-edge fade so video blends into text side */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+
+          {/* HUD corners */}
+          <div className="absolute top-6 left-6 w-6 h-6 border-t-2 border-l-2 border-[#E11D48] opacity-70 z-10" />
+          <div className="absolute top-6 right-6 w-6 h-6 border-t-2 border-r-2 border-[#E11D48] opacity-70 z-10" />
+          <div className="absolute bottom-6 left-6 w-6 h-6 border-b-2 border-l-2 border-[#E11D48] opacity-70 z-10" />
+          <div className="absolute bottom-6 right-6 w-6 h-6 border-b-2 border-r-2 border-[#E11D48] opacity-70 z-10" />
+
+          {/* Live badge */}
+          <div className="absolute top-6 right-14 z-10 flex items-center gap-2 bg-black/70 backdrop-blur-sm border border-white/10 px-3 py-1.5">
+            <span className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-[#E11D48]">
+              <span className="relative flex h-2 w-2 shrink-0">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E11D48] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E11D48]" />
+              </span>
+              Live Feed
+            </span>
           </div>
 
-          <div className="relative flex justify-center">
-            <motion.div
-              initial={{ opacity: 0, y: 100, rotate: 10 }}
-              whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, type: "spring" }}
-              className="relative w-[300px] h-[600px] bg-black rounded-[3rem] border-8 border-black shadow-2xl overflow-hidden"
-            >
-              {/* Phone Screen Content */}
-              <div className="absolute inset-0 bg-neutral-900 flex flex-col">
-                <div className="h-8 bg-black w-full flex justify-center items-center">
-                  <div className="w-20 h-4 bg-black rounded-b-xl" />
-                </div>
-                <div className="p-6 flex-1 flex flex-col gap-4">
-                  <div className="flex justify-between items-center text-white">
-                    <span className="font-bold">FlexCore</span>
-                    <div className="w-8 h-8 rounded-full bg-[#E11D48]" />
-                  </div>
-                  <div className="h-40 bg-white/5 rounded-xl p-4 border border-white/10">
-                    <div className="text-neutral-500 text-xs uppercase mb-1">Today's Revenue</div>
-                    <div className="text-3xl font-bold text-white">$4,250</div>
-                    <div className="mt-8 h-2 bg-white/10 rounded-full overflow-hidden">
-                      <div className="h-full w-2/3 bg-[#E11D48]" />
-                    </div>
-                  </div>
-                  <div className="flex-1 bg-white rounded-t-xl mt-4 p-4 space-y-3">
-                    {[1, 2, 3, 4].map(i => (
-                      <div key={i} className="h-12 bg-neutral-100 rounded-lg w-full" />
-                    ))}
-                  </div>
-                </div>
-              </div>
-              {/* Reflection */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none" />
-            </motion.div>
-            {/* Floating Elements behind phone */}
-            <motion.div
-              animate={{ y: [0, -20, 0] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              className="absolute top-20 -right-10 w-24 h-24 bg-black text-[#E11D48] rounded-full flex items-center justify-center font-black text-xl shadow-xl z-20 border-4 border-[#E11D48]"
-            >
-              100%
-            </motion.div>
+          {/* Bottom label */}
+          <div className="absolute bottom-8 left-8 z-10">
+            <div className="font-mono text-[10px] text-[#E11D48] tracking-[0.4em] mb-1 font-bold">[ MOBILE / FIELD ]</div>
+            <h3 className="text-xl font-black uppercase tracking-tighter text-white" style={{ fontFamily: 'var(--font-outfit)' }}>
+              No Desk Required.
+            </h3>
           </div>
+        </div>
+
+        {/* LEFT HALF: Text content */}
+        <div className="relative z-10 h-full w-full md:w-1/2 flex flex-col justify-center px-8 md:px-16 bg-black md:bg-transparent">
+          {/* subtle red glow */}
+          <div className="absolute top-0 left-0 w-64 h-64 bg-[#E11D48] opacity-10 blur-[80px] pointer-events-none" />
+
+          {/* HUD tag */}
+          <div className="flex items-center gap-3 mb-8">
+            <div className="h-[2px] w-10 bg-[#E11D48]" />
+            <span className="font-mono text-[#E11D48] text-xs uppercase tracking-[0.4em] font-bold">Mobile Command // v3.1</span>
+          </div>
+
+          {/* Headline */}
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="font-black uppercase leading-[0.85] tracking-tighter mb-10"
+            style={{ fontFamily: 'var(--font-outfit)', fontSize: 'clamp(3rem, 7vw, 6.5rem)' }}
+          >
+            Command<br />
+            <span className="text-[#E11D48]">From</span><br />
+            Anywhere
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg text-neutral-400 max-w-sm mb-8 leading-relaxed"
+          >
+            The entire FlexCore operating system in your pocket. Manage staff, check revenue, and approve workflows — wherever you are on the planet.
+          </motion.p>
+
+          {/* Live stat pills */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-wrap gap-3 mb-10"
+          >
+            {[
+              { label: "Active Sessions", value: "1,284", dot: "bg-green-500" },
+              { label: "Revenue Today", value: "$9,420", dot: "bg-[#E11D48]" },
+              { label: "Uptime", value: "99.9%", dot: "bg-blue-500" },
+            ].map((stat, i) => (
+              <div key={i} className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 font-mono text-xs">
+                <span className={`w-2 h-2 rounded-full ${stat.dot} animate-pulse shrink-0`} />
+                <span className="text-neutral-400">{stat.label}:</span>
+                <span className="text-white font-bold">{stat.value}</span>
+              </div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-4"
+          >
+            <Button className="bg-[#E11D48] text-white hover:bg-[#be123c] h-14 px-8 rounded-none uppercase font-bold tracking-wider skew-x-[-12deg] shadow-[0_0_30px_rgba(225,29,72,0.4)] hover:shadow-[0_0_50px_rgba(225,29,72,0.6)] transition-all w-full sm:w-auto">
+              <span className="skew-x-[12deg] flex items-center gap-2"><Smartphone className="h-5 w-5" /> Download App</span>
+            </Button>
+            <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 h-14 px-8 rounded-none uppercase font-bold tracking-wider w-full sm:w-auto">
+              See Demo
+            </Button>
+          </motion.div>
         </div>
       </section>
 
