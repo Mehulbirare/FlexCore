@@ -46,7 +46,7 @@ export default function Home() {
       </header>
 
       {/* Kinetic Hero */}
-      <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden pt-20">
+      <section className="relative h-screen flex flex-col items-center justify-start overflow-hidden pt-24 md:pt-28">
         {/* Background Grid */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
@@ -56,10 +56,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <Badge variant="outline" className="mb-8 border-[#E11D48] text-[#E11D48] bg-[#E11D48]/10 px-4 py-1.5 text-xs rounded-none uppercase tracking-[0.2em]">
-              Future of Fitness Management
-            </Badge>
-            <h1 className="text-7xl md:text-[10rem] font-black leading-[0.85] uppercase tracking-tighter mb-8" style={{ fontFamily: 'var(--font-outfit)' }}>
+<h1 className="text-7xl md:text-[10rem] font-black leading-[0.85] uppercase tracking-tighter mb-8" style={{ fontFamily: 'var(--font-outfit)' }}>
               Train <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E11D48] to-orange-500">Smarter</span>
             </h1>
@@ -75,7 +72,7 @@ export default function Home() {
               </Link>
             </div>
           </motion.div>
-        </div >
+        </div>
 
         {/* Floating UI Mocks */}
         <motion.div
