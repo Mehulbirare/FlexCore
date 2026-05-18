@@ -282,9 +282,8 @@ export default function Home() {
               whileHover={{ scale: 0.99 }}
               className="h-[350px] md:h-full md:col-span-1 relative overflow-hidden group border border-white/5 rounded-none cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
             >
-              {/* Video Component */}
               <video
-                src="/equipment-video.mp4"
+                src="/7986045-uhd_2160_3840_30fps.mp4"
                 autoPlay
                 loop
                 muted
@@ -385,230 +384,210 @@ export default function Home() {
       </section>
 
       {/* NEW SECTION: Mobile Command */}
-      <section className="relative bg-black text-white" style={{ height: '110vh', minHeight: '800px' }}>
+      <section className="relative bg-black text-white overflow-hidden">
+        <div className="absolute inset-0 bg-neutral-950" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(225,29,72,0.1),transparent_60%)]" />
 
-        {/* RIGHT HALF: background + iPhone 17 Pro */}
-        <div className="absolute top-0 right-0 w-full md:w-1/2 h-full z-0 overflow-hidden">
-          {/* Ambient background */}
-          <div className="absolute inset-0 bg-neutral-950" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(225,29,72,0.12),transparent_70%)]" />
+        {/* Mobile: stacked. Desktop: side-by-side */}
+        <div className="relative z-10 flex flex-col md:flex-row min-h-screen">
 
-          {/* Left-edge fade into text panel */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/20 to-transparent z-10 pointer-events-none" />
+          {/* LEFT: Text */}
+          <div className="flex flex-col justify-center px-6 sm:px-10 md:px-16 py-20 md:py-0 w-full md:w-1/2 md:min-h-screen">
+            <div className="absolute top-0 left-0 w-64 h-64 bg-[#E11D48] opacity-10 blur-[80px] pointer-events-none" />
 
-          {/* iPhone 17 Pro — centered */}
-          <motion.div
-            initial={{ opacity: 0, y: 60, scale: 0.9 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute inset-0 flex items-center justify-center z-20"
-          >
-            {/* Glow beneath phone */}
-            <div className="absolute w-48 h-8 bg-[#E11D48] opacity-20 blur-2xl bottom-[15%] left-1/2 -translate-x-1/2 rounded-full" />
-
-            {/* Phone outer shell */}
-            <div
-              className="relative shadow-[0_60px_160px_rgba(0,0,0,0.95),0_0_0_1px_rgba(255,255,255,0.1),inset_0_0_0_1px_rgba(255,255,255,0.05)]"
-              style={{
-                width: '320px',
-                height: '660px',
-                borderRadius: '56px',
-                background: 'linear-gradient(160deg,#3a3a3a 0%,#1a1a1a 40%,#0d0d0d 100%)',
-                padding: '13px',
-                boxSizing: 'border-box',
-              }}
-            >
-              {/* Side buttons — action button (red) */}
-              <div className="absolute -left-[4px] top-[88px] w-[4px] h-8 bg-[#E11D48] rounded-l-md shadow-[0_0_8px_rgba(225,29,72,0.6)]" />
-              {/* Volume up */}
-              <div className="absolute -left-[4px] top-[140px] w-[4px] h-10 bg-neutral-600 rounded-l-md" />
-              {/* Volume down */}
-              <div className="absolute -left-[4px] top-[162px] w-[4px] h-10 bg-neutral-600 rounded-l-md" />
-              {/* Power button */}
-              <div className="absolute -right-[4px] top-[150px] w-[4px] h-14 bg-neutral-600 rounded-r-md" />
-
-              {/* USB-C port */}
-              <div className="absolute bottom-[8px] left-1/2 -translate-x-1/2 w-16 h-[6px] bg-neutral-800 rounded-full" />
-              <div className="absolute bottom-[8px] left-1/2 -translate-x-1/2 w-10 h-[3px] bg-neutral-700 rounded-full" />
-
-              {/* Speaker grilles */}
-              <div className="absolute bottom-[8px] left-[30%] flex gap-[3px]">
-                {[...Array(5)].map((_,i) => <div key={i} className="w-[2px] h-[5px] bg-neutral-700 rounded-full" />)}
-              </div>
-              <div className="absolute bottom-[8px] right-[30%] flex gap-[3px]">
-                {[...Array(5)].map((_,i) => <div key={i} className="w-[2px] h-[5px] bg-neutral-700 rounded-full" />)}
-              </div>
-
-              {/* Screen */}
-              <div
-                className="relative overflow-hidden bg-black"
-                style={{ borderRadius: '44px', width: '100%', height: '100%' }}
-              >
-                {/* Rig Systems video fills phone screen */}
-                <video
-                  src="/equipment-video.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                />
-
-                {/* Screen overlays */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/85 pointer-events-none" />
-
-                {/* Screen glare */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none" />
-
-                {/* Dynamic Island */}
-                <div
-                  className="absolute top-4 left-1/2 -translate-x-1/2 bg-black z-30 flex items-center justify-center gap-2 px-3"
-                  style={{ width: '100px', height: '30px', borderRadius: '24px' }}
-                >
-                  <div className="w-2.5 h-2.5 rounded-full bg-neutral-800 border border-neutral-700 flex items-center justify-center">
-                    <div className="w-1 h-1 rounded-full bg-neutral-600" />
-                  </div>
-                  <div className="w-2 h-2 rounded-full bg-neutral-800 border border-neutral-700" />
-                </div>
-
-                {/* Status bar */}
-                <div className="absolute top-12 left-0 right-0 px-5 flex items-center justify-between z-20">
-                  <span className="text-white text-xs font-bold">9:41</span>
-                  <div className="flex items-center gap-1.5">
-                    <div className="flex gap-[2px] items-end">
-                      {[4,6,8,10].map((h,i) => <div key={i} className="w-[3px] bg-white rounded-sm" style={{height:`${h}px`}} />)}
-                    </div>
-                    <svg className="w-3.5 h-3.5 fill-white" viewBox="0 0 24 24"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3a4.237 4.237 0 00-6 0zm-4-4l2 2a7.074 7.074 0 0110 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
-                    <div className="w-6 h-3 rounded-sm border border-white/60 p-[2px]">
-                      <div className="h-full w-3/4 bg-white rounded-sm" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Live pill */}
-                <div className="absolute top-[4.5rem] right-4 z-20 flex items-center gap-1.5 bg-[#E11D48] px-2.5 py-1 rounded-full">
-                  <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                  <span className="text-white text-[9px] font-bold uppercase tracking-wider">Live</span>
-                </div>
-
-                {/* Bottom card */}
-                <div className="absolute bottom-0 left-0 right-0 z-20 p-4">
-                  <div className="bg-black/75 backdrop-blur-md rounded-2xl p-4 border border-white/10">
-                    <div className="flex items-center justify-between mb-3">
-                      <div>
-                        <p className="text-[10px] text-neutral-400 uppercase tracking-widest font-mono mb-0.5">Today's Revenue</p>
-                        <p className="text-2xl font-black text-white">$9,420</p>
-                      </div>
-                      <div className="w-10 h-10 rounded-full bg-[#E11D48] flex items-center justify-center shadow-[0_0_16px_rgba(225,29,72,0.5)]">
-                        <BarChart2 className="w-5 h-5 text-white" />
-                      </div>
-                    </div>
-                    <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
-                      <div className="h-full w-[72%] bg-[#E11D48] rounded-full" />
-                    </div>
-                    <div className="flex justify-between mt-1.5">
-                      <span className="text-[9px] text-neutral-500 font-mono">72% of goal</span>
-                      <span className="text-[9px] text-[#E11D48] font-mono font-bold">+8.4% ▲</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="flex items-center gap-3 mb-6 md:mb-8">
+              <div className="h-[2px] w-10 bg-[#E11D48]" />
+              <span className="font-mono text-[#E11D48] text-xs uppercase tracking-[0.4em] font-bold">Mobile Command // v3.1</span>
             </div>
 
-            {/* Floating stat cards beside phone */}
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-              className="absolute left-[8%] top-[28%] z-30 bg-black/80 backdrop-blur-md border border-white/10 rounded-xl px-3 py-2 shadow-xl"
+            <motion.h2
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="font-black uppercase leading-[0.85] tracking-tighter mb-6 md:mb-10"
+              style={{ fontFamily: 'var(--font-outfit)', fontSize: 'clamp(2.8rem, 8vw, 6.5rem)' }}
             >
-              <p className="text-[8px] text-neutral-500 uppercase tracking-wider font-mono">Active Members</p>
-              <p className="text-lg font-black text-white font-mono">1,284</p>
-              <p className="text-[8px] text-green-400 font-mono">▲ 12% today</p>
+              Command<br />
+              <span className="text-[#E11D48]">From</span><br />
+              Anywhere
+            </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-base sm:text-lg text-neutral-400 max-w-sm mb-6 md:mb-8 leading-relaxed"
+            >
+              The entire FlexCore operating system in your pocket. Manage staff, check revenue, and approve workflows — wherever you are on the planet.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-wrap gap-2 md:gap-3 mb-6 md:mb-10"
+            >
+              {[
+                { label: "Active Sessions", value: "1,284", dot: "bg-green-500" },
+                { label: "Revenue Today", value: "$9,420", dot: "bg-[#E11D48]" },
+                { label: "Uptime", value: "99.9%", dot: "bg-blue-500" },
+              ].map((stat, i) => (
+                <div key={i} className="flex items-center gap-2 bg-white/5 border border-white/10 px-3 py-1.5 font-mono text-xs">
+                  <span className={`w-2 h-2 rounded-full ${stat.dot} animate-pulse shrink-0`} />
+                  <span className="text-neutral-400">{stat.label}:</span>
+                  <span className="text-white font-bold">{stat.value}</span>
+                </div>
+              ))}
             </motion.div>
 
             <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 0.5 }}
-              className="absolute right-[6%] top-[38%] z-30 bg-[#E11D48]/90 backdrop-blur-md rounded-xl px-3 py-2 shadow-xl"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-3 md:gap-4"
             >
-              <p className="text-[8px] text-white/70 uppercase tracking-wider font-mono">Classes Live</p>
-              <p className="text-lg font-black text-white font-mono">14</p>
-              <p className="text-[8px] text-white/60 font-mono">right now</p>
+              <Button className="bg-[#E11D48] text-white hover:bg-[#be123c] h-12 md:h-14 px-6 md:px-8 rounded-none uppercase font-bold tracking-wider skew-x-[-12deg] shadow-[0_0_30px_rgba(225,29,72,0.4)] hover:shadow-[0_0_50px_rgba(225,29,72,0.6)] transition-all w-full sm:w-auto">
+                <span className="skew-x-[12deg] flex items-center gap-2"><Smartphone className="h-4 w-4 md:h-5 md:w-5" /> Download App</span>
+              </Button>
+              <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 h-12 md:h-14 px-6 md:px-8 rounded-none uppercase font-bold tracking-wider w-full sm:w-auto">
+                See Demo
+              </Button>
             </motion.div>
-          </motion.div>
-        </div>
-
-        {/* LEFT HALF: Text content */}
-        <div className="relative z-10 h-full w-full md:w-1/2 flex flex-col justify-center px-8 md:px-16 bg-black md:bg-transparent">
-          {/* subtle red glow */}
-          <div className="absolute top-0 left-0 w-64 h-64 bg-[#E11D48] opacity-10 blur-[80px] pointer-events-none" />
-
-          {/* HUD tag */}
-          <div className="flex items-center gap-3 mb-8">
-            <div className="h-[2px] w-10 bg-[#E11D48]" />
-            <span className="font-mono text-[#E11D48] text-xs uppercase tracking-[0.4em] font-bold">Mobile Command // v3.1</span>
           </div>
 
-          {/* Headline */}
-          <motion.h2
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="font-black uppercase leading-[0.85] tracking-tighter mb-10"
-            style={{ fontFamily: 'var(--font-outfit)', fontSize: 'clamp(3rem, 7vw, 6.5rem)' }}
-          >
-            Command<br />
-            <span className="text-[#E11D48]">From</span><br />
-            Anywhere
-          </motion.h2>
+          {/* RIGHT: Phone */}
+          <div className="relative w-full md:w-1/2 flex items-center justify-center py-16 md:py-20 bg-neutral-950 md:min-h-screen overflow-hidden">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(225,29,72,0.12),transparent_70%)]" />
+            <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-neutral-950 to-transparent z-10 hidden md:block" />
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg text-neutral-400 max-w-sm mb-8 leading-relaxed"
-          >
-            The entire FlexCore operating system in your pocket. Manage staff, check revenue, and approve workflows — wherever you are on the planet.
-          </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 50, scale: 0.92 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="relative z-20 flex items-center justify-center"
+            >
+              {/* Glow */}
+              <div className="absolute w-40 h-6 bg-[#E11D48] opacity-25 blur-2xl -bottom-4 left-1/2 -translate-x-1/2 rounded-full" />
 
-          {/* Live stat pills */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap gap-3 mb-10"
-          >
-            {[
-              { label: "Active Sessions", value: "1,284", dot: "bg-green-500" },
-              { label: "Revenue Today", value: "$9,420", dot: "bg-[#E11D48]" },
-              { label: "Uptime", value: "99.9%", dot: "bg-blue-500" },
-            ].map((stat, i) => (
-              <div key={i} className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 font-mono text-xs">
-                <span className={`w-2 h-2 rounded-full ${stat.dot} animate-pulse shrink-0`} />
-                <span className="text-neutral-400">{stat.label}:</span>
-                <span className="text-white font-bold">{stat.value}</span>
+              {/* Floating stat — left (hidden on very small screens) */}
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                className="absolute -left-2 sm:-left-16 top-[22%] z-30 bg-black/80 backdrop-blur-md border border-white/10 rounded-xl px-3 py-2 shadow-xl hidden sm:block"
+              >
+                <p className="text-[8px] text-neutral-500 uppercase tracking-wider font-mono">Active Members</p>
+                <p className="text-base font-black text-white font-mono">1,284</p>
+                <p className="text-[8px] text-green-400 font-mono">▲ 12% today</p>
+              </motion.div>
+
+              {/* Floating stat — right (hidden on very small screens) */}
+              <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 0.5 }}
+                className="absolute -right-2 sm:-right-16 top-[35%] z-30 bg-[#E11D48]/90 backdrop-blur-md rounded-xl px-3 py-2 shadow-xl hidden sm:block"
+              >
+                <p className="text-[8px] text-white/70 uppercase tracking-wider font-mono">Classes Live</p>
+                <p className="text-base font-black text-white font-mono">14</p>
+                <p className="text-[8px] text-white/60 font-mono">right now</p>
+              </motion.div>
+
+              {/* Phone shell — scales with viewport */}
+              <div
+                className="relative shadow-[0_40px_120px_rgba(0,0,0,0.9),0_0_0_1px_rgba(255,255,255,0.1)]"
+                style={{
+                  width: 'clamp(200px, 38vw, 300px)',
+                  height: 'clamp(420px, 78vw, 620px)',
+                  borderRadius: 'clamp(36px, 7vw, 52px)',
+                  background: 'linear-gradient(160deg,#3a3a3a 0%,#1a1a1a 40%,#0d0d0d 100%)',
+                  padding: 'clamp(8px, 1.5vw, 12px)',
+                  boxSizing: 'border-box',
+                }}
+              >
+                {/* Buttons */}
+                <div className="absolute -left-[4px] top-[80px] w-[4px] h-6 bg-[#E11D48] rounded-l-md shadow-[0_0_8px_rgba(225,29,72,0.5)]" />
+                <div className="absolute -left-[4px] top-[120px] w-[4px] h-8 bg-neutral-600 rounded-l-md" />
+                <div className="absolute -left-[4px] top-[140px] w-[4px] h-8 bg-neutral-600 rounded-l-md" />
+                <div className="absolute -right-[4px] top-[130px] w-[4px] h-10 bg-neutral-600 rounded-r-md" />
+
+                {/* USB-C */}
+                <div className="absolute bottom-[7px] left-1/2 -translate-x-1/2 w-14 h-[5px] bg-neutral-800 rounded-full" />
+                <div className="absolute bottom-[7px] left-1/2 -translate-x-1/2 w-9 h-[3px] bg-neutral-700 rounded-full" />
+
+                {/* Screen */}
+                <div
+                  className="relative overflow-hidden bg-black w-full h-full"
+                  style={{ borderRadius: 'clamp(28px, 6vw, 42px)' }}
+                >
+                  <video
+                    src="/equipment-video.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/85 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none" />
+
+                  {/* Dynamic Island */}
+                  <div
+                    className="absolute top-3 left-1/2 -translate-x-1/2 bg-black z-30 flex items-center justify-center gap-1.5"
+                    style={{ width: 'clamp(70px, 14vw, 95px)', height: 'clamp(20px, 4vw, 28px)', borderRadius: '20px' }}
+                  >
+                    <div className="w-2 h-2 rounded-full bg-neutral-800 border border-neutral-700" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-neutral-800 border border-neutral-700" />
+                  </div>
+
+                  {/* Status bar */}
+                  <div className="absolute top-10 left-0 right-0 px-4 flex items-center justify-between z-20">
+                    <span className="text-white text-[10px] font-bold">9:41</span>
+                    <div className="flex items-center gap-1">
+                      <div className="flex gap-[2px] items-end">
+                        {[3,5,7,9].map((h,i) => <div key={i} className="w-[2px] bg-white rounded-sm" style={{height:`${h}px`}} />)}
+                      </div>
+                      <div className="w-5 h-2.5 rounded-sm border border-white/60 p-[2px] ml-1">
+                        <div className="h-full w-3/4 bg-white rounded-sm" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Live pill */}
+                  <div className="absolute top-[3.8rem] right-3 z-20 flex items-center gap-1 bg-[#E11D48] px-2 py-0.5 rounded-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                    <span className="text-white text-[8px] font-bold uppercase tracking-wider">Live</span>
+                  </div>
+
+                  {/* Bottom revenue card */}
+                  <div className="absolute bottom-0 left-0 right-0 z-20 p-3">
+                    <div className="bg-black/75 backdrop-blur-md rounded-2xl p-3 border border-white/10">
+                      <div className="flex items-center justify-between mb-2">
+                        <div>
+                          <p className="text-[8px] text-neutral-400 uppercase tracking-widest font-mono mb-0.5">Today's Revenue</p>
+                          <p className="text-lg font-black text-white">$9,420</p>
+                        </div>
+                        <div className="w-8 h-8 rounded-full bg-[#E11D48] flex items-center justify-center shadow-[0_0_12px_rgba(225,29,72,0.5)]">
+                          <BarChart2 className="w-4 h-4 text-white" />
+                        </div>
+                      </div>
+                      <div className="h-1 bg-white/10 rounded-full overflow-hidden">
+                        <div className="h-full w-[72%] bg-[#E11D48] rounded-full" />
+                      </div>
+                      <div className="flex justify-between mt-1">
+                        <span className="text-[8px] text-neutral-500 font-mono">72% of goal</span>
+                        <span className="text-[8px] text-[#E11D48] font-mono font-bold">+8.4% ▲</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            ))}
-          </motion.div>
+            </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4"
-          >
-            <Button className="bg-[#E11D48] text-white hover:bg-[#be123c] h-14 px-8 rounded-none uppercase font-bold tracking-wider skew-x-[-12deg] shadow-[0_0_30px_rgba(225,29,72,0.4)] hover:shadow-[0_0_50px_rgba(225,29,72,0.6)] transition-all w-full sm:w-auto">
-              <span className="skew-x-[12deg] flex items-center gap-2"><Smartphone className="h-5 w-5" /> Download App</span>
-            </Button>
-            <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 h-14 px-8 rounded-none uppercase font-bold tracking-wider w-full sm:w-auto">
-              See Demo
-            </Button>
-          </motion.div>
         </div>
       </section>
 
