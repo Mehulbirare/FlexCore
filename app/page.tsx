@@ -608,7 +608,7 @@ export default function Home() {
           </div>
 
           {/* Mobile: horizontal snap carousel Â· Desktop: 3-col grid */}
-          <div className="flex items-start md:grid md:grid-cols-3 md:items-stretch gap-6 md:gap-8 max-w-6xl mx-auto overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-6 px-6 md:mx-auto md:px-0 pt-5 pb-6 md:py-0 scrollbar-hide">
+          <div className="flex items-start md:grid md:grid-cols-3 md:items-start gap-6 md:gap-8 max-w-6xl mx-auto overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-6 px-6 md:mx-auto md:px-0 pt-5 pb-6 md:py-0 scrollbar-hide">
             {[
               { name: 'Starter', price: '$199', desc: 'Essential tools for boutique studios.', features: ['Up to 500 members', 'Class scheduling', 'Automated billing', 'Email support'] },
               { name: 'Pro', price: '$399', desc: 'Advanced automation for growing gyms.', popular: true, features: ['Unlimited members', 'AI lead automation', 'Access control integration', 'Advanced analytics', 'Priority 24/7 support'] },
