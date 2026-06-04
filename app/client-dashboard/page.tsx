@@ -57,7 +57,7 @@ export default function ClientDashboardPage() {
             </motion.div>
 
             {/* KPI Cards */}
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
                 {[
                     { title: "Weekly Workouts", value: "5", trend: "+1", trendUp: true, icon: Dumbbell },
                     { title: "Calories Burned", value: "2,450", trend: "+12%", trendUp: true, icon: Flame },
@@ -70,23 +70,23 @@ export default function ClientDashboardPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 + (i * 0.1), duration: 0.5 }}
                     >
-                        <Card className="bg-[#0A0A0A] border-neutral-800 hover:border-neutral-600 transition-all duration-300 group overflow-hidden relative rounded-[2rem] shadow-lg">
+                        <Card className="h-full bg-[#0A0A0A] border-neutral-800 hover:border-neutral-600 transition-all duration-300 group overflow-hidden relative rounded-2xl sm:rounded-[2rem] shadow-lg">
                             <div className="absolute -right-6 -top-6 p-4 opacity-[0.03] group-hover:opacity-5 group-hover:scale-110 transition-all duration-500 pointer-events-none">
-                                <item.icon className="w-32 h-32 text-white" />
+                                <item.icon className="w-24 h-24 sm:w-32 sm:h-32 text-white" />
                             </div>
-                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 relative z-10">
-                                <CardTitle className="text-xs font-bold text-neutral-400 uppercase tracking-wider">
+                            <CardHeader className="flex flex-row items-center justify-between space-y-0 gap-2 pb-2 relative z-10">
+                                <CardTitle className="text-[10px] sm:text-xs font-bold text-neutral-400 uppercase tracking-wider leading-tight">
                                     {item.title}
                                 </CardTitle>
-                                <div className="h-8 w-8 rounded-full bg-[#111] flex items-center justify-center border border-neutral-800 group-hover:bg-white group-hover:text-black transition-colors">
-                                    <item.icon className="h-4 w-4 text-neutral-400 group-hover:text-black transition-colors" />
+                                <div className="h-7 w-7 sm:h-8 sm:w-8 shrink-0 rounded-full bg-[#111] flex items-center justify-center border border-neutral-800 group-hover:bg-white group-hover:text-black transition-colors">
+                                    <item.icon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-neutral-400 group-hover:text-black transition-colors" />
                                 </div>
                             </CardHeader>
                             <CardContent className="relative z-10 pt-2">
-                                <div className="text-3xl font-semibold text-white mb-2 tracking-tight" style={{ fontFamily: 'var(--font-outfit)' }}>{item.value}</div>
-                                <p className={`text-xs font-medium flex items-center gap-1.5 w-fit px-2 py-1 rounded-full ${item.trendUp ? "bg-white/10 text-white" : "bg-neutral-800 text-neutral-400"}`}>
-                                    {item.trendUp ? <ArrowUpRight className="h-3 w-3" /> : <ArrowDownRight className="h-3 w-3" />}
-                                    {item.trend} <span className="opacity-70 text-neutral-400 ml-1">vs last week</span>
+                                <div className="text-2xl sm:text-3xl font-semibold text-white mb-2 tracking-tight" style={{ fontFamily: 'var(--font-outfit)' }}>{item.value}</div>
+                                <p className={`text-[10px] sm:text-xs font-medium flex items-center gap-1 w-fit px-2 py-1 rounded-full ${item.trendUp ? "bg-white/10 text-white" : "bg-neutral-800 text-neutral-400"}`}>
+                                    {item.trendUp ? <ArrowUpRight className="h-3 w-3 shrink-0" /> : <ArrowDownRight className="h-3 w-3 shrink-0" />}
+                                    {item.trend} <span className="opacity-70 text-neutral-400 ml-1 hidden sm:inline">vs last week</span>
                                 </p>
                             </CardContent>
                         </Card>

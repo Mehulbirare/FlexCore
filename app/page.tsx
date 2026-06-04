@@ -2,22 +2,17 @@
 
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { motion, useScroll, useTransform, useSpring } from "framer-motion"
-import { ArrowRight, Zap, Target, BarChart2, Check, Smartphone, Users } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { ArrowRight, Zap, Target, BarChart2, Check, Smartphone, Users, ChevronDown } from "lucide-react"
 import Link from "next/link"
-import { useRef } from "react"
+import { useState } from "react"
 
 export default function Home() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  })
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
+  // Tracks which pricing card's feature dropdown is open (all collapsed by default)
+  const [openPlan, setOpenPlan] = useState<number | null>(null)
 
   return (
-    <div ref={containerRef} className="flex min-h-screen flex-col bg-black text-white font-sans selection:bg-[#E11D48] selection:text-white overflow-x-hidden">
+    <div className="flex min-h-screen flex-col bg-black text-white font-sans selection:bg-[#E11D48] selection:text-white overflow-x-hidden">
       {/* Navbar */}
       <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-black/50 backdrop-blur-md">
         <div className="container mx-auto flex h-20 items-center justify-between px-6">
@@ -350,7 +345,8 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Mobile: horizontal snap carousel · Desktop: 3-col grid */}
+          <div className="flex md:grid md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-6 px-6 md:mx-0 md:px-0 pb-6 md:pb-0 scrollbar-hide">
             {[
               { title: "Ingest", icon: Target, desc: "Capture leads from social, web, and walk-ins instantly.", img: "https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg" },
               { title: "Process", icon: Zap, desc: "AI algorithms categorize and assign engaging workflows.", img: "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg" },
@@ -362,7 +358,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.2 }}
-                className="group relative bg-neutral-900 border border-white/10 p-10 overflow-hidden hover:border-[#E11D48] transition-colors"
+                className="group relative shrink-0 w-[82%] sm:w-[60%] md:w-auto snap-center bg-neutral-900 border border-white/10 p-10 overflow-hidden hover:border-[#E11D48] transition-colors"
                 whileHover={{ y: -10 }}
               >
                 {/* Background Image with Overlay */}
@@ -379,6 +375,13 @@ export default function Home() {
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          {/* Swipe hint — mobile only */}
+          <div className="flex md:hidden items-center justify-center gap-2 mt-4 text-neutral-600">
+            <ArrowRight className="w-4 h-4 -scale-x-100" />
+            <span className="font-mono text-[10px] uppercase tracking-[0.3em]">Swipe</span>
+            <ArrowRight className="w-4 h-4" />
           </div>
         </div>
       </section>
@@ -603,11 +606,12 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {/* Mobile: horizontal snap carousel · Desktop: 3-col grid */}
+          <div className="flex items-start md:grid md:grid-cols-3 md:items-stretch gap-6 md:gap-8 max-w-6xl mx-auto overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-6 px-6 md:mx-auto md:px-0 pt-5 pb-6 md:py-0 scrollbar-hide">
             {[
-              { name: 'Starter', price: '$199', desc: 'Essential tools for boutique studios.' },
-              { name: 'Pro', price: '$399', desc: 'Advanced automation for growing gyms.', popular: true },
-              { name: 'Elite', price: '$799', desc: 'Full custom stack for franchises.' }
+              { name: 'Starter', price: '$199', desc: 'Essential tools for boutique studios.', features: ['Up to 500 members', 'Class scheduling', 'Automated billing', 'Email support'] },
+              { name: 'Pro', price: '$399', desc: 'Advanced automation for growing gyms.', popular: true, features: ['Unlimited members', 'AI lead automation', 'Access control integration', 'Advanced analytics', 'Priority 24/7 support'] },
+              { name: 'Elite', price: '$799', desc: 'Full custom stack for franchises.', features: ['Everything in Pro', 'Multi-location management', 'Custom GraphQL API', 'Dedicated success manager', 'White-label branding'] }
             ].map((plan, i) => (
               <motion.div
                 key={i}
@@ -616,7 +620,7 @@ export default function Home() {
                 whileHover={{ y: -20, scale: 1.02, boxShadow: "0 20px 40px -15px rgba(225, 29, 72, 0.2)" }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: i * 0.1 }}
-                className={`relative p-8 border ${plan.popular ? 'border-[#E11D48] bg-[#E11D48]/5' : 'border-white/10 bg-neutral-900'} flex flex-col group hover:border-[#E11D48] transition-colors`}
+                className={`relative shrink-0 w-[82%] sm:w-[60%] md:w-auto snap-center p-8 border ${plan.popular ? 'border-[#E11D48] bg-[#E11D48]/5' : 'border-white/10 bg-neutral-900'} flex flex-col group hover:border-[#E11D48] transition-colors`}
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#E11D48] text-white text-xs font-bold uppercase px-3 py-1 tracking-widest shadow-[0_0_15px_rgba(225,29,72,0.4)]">
@@ -628,22 +632,59 @@ export default function Home() {
                   <span className="text-4xl font-black text-white">{plan.price}</span>
                   <span className="text-neutral-500">/mo</span>
                 </div>
-                <p className="text-neutral-400 text-sm mb-8">{plan.desc}</p>
-                <ul className="space-y-4 mb-8 flex-1">
-                  {[1, 2, 3, 4].map(k => (
-                    <li key={k} className="flex items-center gap-3 text-sm text-neutral-300">
-                      <div className="p-1 rounded-full bg-[#E11D48]/20 text-[#E11D48]">
-                        <Check className="w-3 h-3" />
-                      </div>
-                      <span className="group-hover:text-white transition-colors">Advanced Feature Access</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button className={`w-full h-12 rounded-none font-bold uppercase tracking-wider transition-all duration-300 ${plan.popular ? 'bg-[#E11D48] text-white hover:bg-[#be123c] hover:shadow-[0_0_20px_rgba(225,29,72,0.6)]' : 'bg-white text-black hover:bg-[#E11D48] hover:text-white'}`}>
+                <p className="text-neutral-400 text-sm mb-6">{plan.desc}</p>
+
+                {/* Collapsible feature list */}
+                <div className="mb-6 md:mb-8">
+                  <button
+                    type="button"
+                    onClick={() => setOpenPlan(openPlan === i ? null : i)}
+                    aria-expanded={openPlan === i}
+                    className="flex w-full items-center justify-between border-y border-white/10 py-3 text-left"
+                  >
+                    <span className="text-xs font-bold uppercase tracking-widest text-neutral-300 group-hover:text-white transition-colors">
+                      What's included
+                    </span>
+                    <ChevronDown
+                      className={`w-4 h-4 text-[#E11D48] transition-transform duration-300 ${openPlan === i ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {openPlan === i && (
+                      <motion.ul
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="space-y-3 pt-4">
+                          {plan.features.map((feature, k) => (
+                            <li key={k} className="flex items-center gap-3 text-sm text-neutral-300">
+                              <div className="p-1 rounded-full bg-[#E11D48]/20 text-[#E11D48] shrink-0">
+                                <Check className="w-3 h-3" />
+                              </div>
+                              <span className="group-hover:text-white transition-colors">{feature}</span>
+                            </li>
+                          ))}
+                        </div>
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                <Button className={`w-full h-12 md:mt-auto rounded-none font-bold uppercase tracking-wider transition-all duration-300 ${plan.popular ? 'bg-[#E11D48] text-white hover:bg-[#be123c] hover:shadow-[0_0_20px_rgba(225,29,72,0.6)]' : 'bg-white text-black hover:bg-[#E11D48] hover:text-white'}`}>
                   Choose {plan.name}
                 </Button>
               </motion.div>
             ))}
+          </div>
+
+          {/* Swipe hint — mobile only */}
+          <div className="flex md:hidden items-center justify-center gap-2 mt-4 text-neutral-600">
+            <ArrowRight className="w-4 h-4 -scale-x-100" />
+            <span className="font-mono text-[10px] uppercase tracking-[0.3em]">Swipe</span>
+            <ArrowRight className="w-4 h-4" />
           </div>
         </div>
       </section>
@@ -658,7 +699,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-5xl md:text-8xl font-black uppercase text-center mb-20 leading-none tracking-tighter" style={{ fontFamily: 'var(--font-outfit)' }}
           >
-            Built For <br /> <span className="text-white box-decoration-clone bg-[#E11D48] text-white px-4">Speed</span>
+            Built For <br /> <span className="inline-block bg-[#E11D48] text-white px-4 py-2 mt-3 leading-none">Speed</span>
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-auto md:h-[600px]">

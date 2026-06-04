@@ -193,6 +193,15 @@
   animation: infinite-scroll 25s linear infinite;
 }
 
+/* Hide scrollbar while keeping scroll functionality (used by mobile carousels) */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 @keyframes spin-slow {
   to {
     transform: rotate(360deg);
