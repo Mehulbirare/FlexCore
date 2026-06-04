@@ -1,5 +1,6 @@
 "use client"
 
+import { asset } from "@/lib/asset"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -16,7 +17,7 @@ export default function TrainersPage() {
             <div
                 className="absolute inset-0 z-0 opacity-15 pointer-events-none"
                 style={{
-                    backgroundImage: 'url(/trainers-bg.png)',
+                    backgroundImage: `url(${asset("/trainers-bg.png")})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}

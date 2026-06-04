@@ -1,5 +1,6 @@
 "use client"
 
+import { asset } from "@/lib/asset"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -24,7 +25,7 @@ export default function MembersPage() {
             <div
                 className="absolute inset-0 z-0 opacity-20 pointer-events-none"
                 style={{
-                    backgroundImage: 'url(/members-bg.png)',
+                    backgroundImage: `url(${asset("/members-bg.png")})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}

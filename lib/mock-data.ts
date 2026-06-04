@@ -1,3 +1,4 @@
+import { asset } from "./asset";
 
 export const MOCK_USER = {
     id: "user_12345",
@@ -5,7 +6,7 @@ export const MOCK_USER = {
     password: "admin", // In a real app never store cleartext, this is just for mock logic
     name: "Admin User",
     role: "admin",
-    avatar: "/avatars/01.png"
+    avatar: asset("/avatars/01.png")
 };
 
 export const MOCK_DASHBOARD_DATA = {
@@ -33,27 +34,27 @@ export const MOCK_DASHBOARD_DATA = {
 };
 
 export const MOCK_MEMBERS = [
-    { id: "m1", name: "Alice Johnson", email: "alice@example.com", plan: "Platinum Elite", status: "Active", joinDate: "2024-01-15", avatar: "/members/alice.png", lastVisit: "2 hours ago" },
-    { id: "m2", name: "Bob Smith", email: "bob@example.com", plan: "Gold Standard", status: "Active", joinDate: "2024-02-01", avatar: "/members/bob.png", lastVisit: "Yesterday" },
-    { id: "m3", name: "Charlie Brown", email: "charlie@example.com", plan: "Silver Basic", status: "Expired", joinDate: "2023-11-20", avatar: "/members/bob.png", lastVisit: "30 days ago" },
-    { id: "m4", name: "Diana Prince", email: "diana@example.com", plan: "Platinum Elite", status: "Active", joinDate: "2024-03-10", avatar: "/members/alice.png", lastVisit: "Today" },
-    { id: "m5", name: "Evan Wright", email: "evan@example.com", plan: "Gold Standard", status: "Pending", joinDate: "2024-05-05", avatar: "/members/bob.png", lastVisit: "Never" },
-    { id: "m6", name: "Fiona Gallagher", email: "fiona@example.com", plan: "Silver Basic", status: "Active", joinDate: "2024-02-28", avatar: "/members/alice.png", lastVisit: "3 days ago" },
+    { id: "m1", name: "Alice Johnson", email: "alice@example.com", plan: "Platinum Elite", status: "Active", joinDate: "2024-01-15", avatar: asset("/members/alice.png"), lastVisit: "2 hours ago" },
+    { id: "m2", name: "Bob Smith", email: "bob@example.com", plan: "Gold Standard", status: "Active", joinDate: "2024-02-01", avatar: asset("/members/bob.png"), lastVisit: "Yesterday" },
+    { id: "m3", name: "Charlie Brown", email: "charlie@example.com", plan: "Silver Basic", status: "Expired", joinDate: "2023-11-20", avatar: asset("/members/bob.png"), lastVisit: "30 days ago" },
+    { id: "m4", name: "Diana Prince", email: "diana@example.com", plan: "Platinum Elite", status: "Active", joinDate: "2024-03-10", avatar: asset("/members/alice.png"), lastVisit: "Today" },
+    { id: "m5", name: "Evan Wright", email: "evan@example.com", plan: "Gold Standard", status: "Pending", joinDate: "2024-05-05", avatar: asset("/members/bob.png"), lastVisit: "Never" },
+    { id: "m6", name: "Fiona Gallagher", email: "fiona@example.com", plan: "Silver Basic", status: "Active", joinDate: "2024-02-28", avatar: asset("/members/alice.png"), lastVisit: "3 days ago" },
 ];
 
 export const MOCK_TRAINERS = [
-    { id: "t1", name: "John Doe", specialty: "Strength & Conditioning", clients: 12, rating: 4.9, avatar: "/trainers/john-doe.png", status: "Available" },
-    { id: "t2", name: "Jane Smith", specialty: "Yoga & Pilates", clients: 8, rating: 4.8, avatar: "/trainers/jane-smith.png", status: "Class in Session" },
-    { id: "t3", name: "Mike Tyson", specialty: "Boxing", clients: 15, rating: 5.0, avatar: "/trainers/mike-tyson.png", status: "Available" },
-    { id: "t4", name: "Sarah Connor", specialty: "CrossFit", clients: 10, rating: 4.7, avatar: "/trainers/sarah-connor.png", status: "On Leave" },
+    { id: "t1", name: "John Doe", specialty: "Strength & Conditioning", clients: 12, rating: 4.9, avatar: asset("/trainers/john-doe.png"), status: "Available" },
+    { id: "t2", name: "Jane Smith", specialty: "Yoga & Pilates", clients: 8, rating: 4.8, avatar: asset("/trainers/jane-smith.png"), status: "Class in Session" },
+    { id: "t3", name: "Mike Tyson", specialty: "Boxing", clients: 15, rating: 5.0, avatar: asset("/trainers/mike-tyson.png"), status: "Available" },
+    { id: "t4", name: "Sarah Connor", specialty: "CrossFit", clients: 10, rating: 4.7, avatar: asset("/trainers/sarah-connor.png"), status: "On Leave" },
 ];
 
 export const MOCK_INVENTORY = [
-    { id: "inv1", name: "Whey Protein (Chocolate)", category: "Supplements", quantity: 45, price: 59.99, status: "In Stock", image: "/inventory/protein.png" },
-    { id: "inv2", name: "Yoga Mats", category: "Equipment", quantity: 12, price: 29.99, status: "Low Stock", image: "/inventory/yoga-mat.png" },
-    { id: "inv3", name: "Dumbbell Set (5-50lbs)", category: "Equipment", quantity: 2, price: 499.99, status: "In Stock", image: "/inventory/dumbbells.png" },
-    { id: "inv4", name: "Pre-Workout (Blue Razz)", category: "Supplements", quantity: 0, price: 39.99, status: "Out of Stock", image: "/inventory/pre-workout.png" },
-    { id: "inv5", name: "Treadmill Belts", category: "Maintenance", quantity: 5, price: 120.00, status: "In Stock", image: "/inventory/treadmill-belt.png" },
+    { id: "inv1", name: "Whey Protein (Chocolate)", category: "Supplements", quantity: 45, price: 59.99, status: "In Stock", image: asset("/inventory/protein.png") },
+    { id: "inv2", name: "Yoga Mats", category: "Equipment", quantity: 12, price: 29.99, status: "Low Stock", image: asset("/inventory/yoga-mat.png") },
+    { id: "inv3", name: "Dumbbell Set (5-50lbs)", category: "Equipment", quantity: 2, price: 499.99, status: "In Stock", image: asset("/inventory/dumbbells.png") },
+    { id: "inv4", name: "Pre-Workout (Blue Razz)", category: "Supplements", quantity: 0, price: 39.99, status: "Out of Stock", image: asset("/inventory/pre-workout.png") },
+    { id: "inv5", name: "Treadmill Belts", category: "Maintenance", quantity: 5, price: 120.00, status: "In Stock", image: asset("/inventory/treadmill-belt.png") },
 ];
 
 export const MOCK_FINANCE = [

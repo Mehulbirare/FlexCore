@@ -1,5 +1,6 @@
 "use client"
 
+import { asset } from "@/lib/asset"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -19,7 +20,7 @@ export default function InventoryPage() {
             <div
                 className="absolute inset-0 z-0 opacity-10 pointer-events-none"
                 style={{
-                    backgroundImage: 'url(/inventory-bg.png)',
+                    backgroundImage: `url(${asset("/inventory-bg.png")})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}

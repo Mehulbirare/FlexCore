@@ -56,8 +56,8 @@ export default function ClientDashboardPage() {
                 </div>
             </motion.div>
 
-            {/* KPI Cards */}
-            <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
+            {/* KPI Cards — mobile: horizontal snap carousel · desktop: 4-col grid */}
+            <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory scrollbar-hide -mx-6 px-6 md:-mx-8 md:px-8 pb-2 lg:grid lg:grid-cols-4 lg:gap-6 lg:mx-0 lg:px-0 lg:pb-0 lg:overflow-visible">
                 {[
                     { title: "Weekly Workouts", value: "5", trend: "+1", trendUp: true, icon: Dumbbell },
                     { title: "Calories Burned", value: "2,450", trend: "+12%", trendUp: true, icon: Flame },
@@ -69,6 +69,7 @@ export default function ClientDashboardPage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 + (i * 0.1), duration: 0.5 }}
+                        className="shrink-0 w-[44%] sm:w-[30%] lg:w-auto snap-start"
                     >
                         <Card className="h-full bg-[#0A0A0A] border-neutral-800 hover:border-neutral-600 transition-all duration-300 group overflow-hidden relative rounded-2xl sm:rounded-[2rem] shadow-lg">
                             <div className="absolute -right-6 -top-6 p-4 opacity-[0.03] group-hover:opacity-5 group-hover:scale-110 transition-all duration-500 pointer-events-none">
@@ -102,13 +103,13 @@ export default function ClientDashboardPage() {
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 0.5 }}
                 >
-                    <Card className="bg-[#0A0A0A] border-neutral-800 rounded-[2rem] overflow-hidden h-full shadow-lg">
+                    <Card className="bg-[#0A0A0A] border-neutral-800 rounded-[2rem] overflow-hidden h-full flex flex-col shadow-lg">
                         <CardHeader className="border-b border-neutral-800 pb-6">
                             <CardTitle className="text-white text-lg font-semibold tracking-tight">Activity Intensity</CardTitle>
                             <CardDescription className="text-neutral-400">Calories burned over the last 7 days.</CardDescription>
                         </CardHeader>
-                        <CardContent className="p-6">
-                            <ChartContainer config={chartConfig} className="h-[250px] md:h-[300px] w-full">
+                        <CardContent className="p-6 flex-1 min-h-0">
+                            <ChartContainer config={chartConfig} className="h-full w-full min-h-[250px]">
                                 <AreaChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                                     <defs>
                                         <linearGradient id="fillCalories" x1="0" y1="0" x2="0" y2="1">

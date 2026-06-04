@@ -1,5 +1,6 @@
 "use client"
 
+import { asset } from "@/lib/asset"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { motion, AnimatePresence } from "framer-motion"
@@ -45,7 +46,7 @@ export default function Home() {
         {/* Full-screen Background Video */}
         <div className="absolute inset-0 z-0">
           <video
-            src="/arena-video.mp4"
+            src={asset("/arena-video.mp4")}
             autoPlay
             loop
             muted
@@ -217,7 +218,7 @@ export default function Home() {
             >
               {/* Video Component */}
               <video
-                src="/community-video.mp4"
+                src={asset("/community-video.mp4")}
                 autoPlay
                 loop
                 muted
@@ -278,7 +279,7 @@ export default function Home() {
               className="h-[350px] md:h-full md:col-span-1 relative overflow-hidden group border border-white/5 rounded-none cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
             >
               <video
-                src="/7986045-uhd_2160_3840_30fps.mp4"
+                src={asset("/7986045-uhd_2160_3840_30fps.mp4")}
                 autoPlay
                 loop
                 muted
@@ -345,7 +346,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          {/* Mobile: horizontal snap carousel · Desktop: 3-col grid */}
+          {/* Mobile: horizontal snap carousel Â· Desktop: 3-col grid */}
           <div className="flex md:grid md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-6 px-6 md:mx-0 md:px-0 pb-6 md:pb-0 scrollbar-hide">
             {[
               { title: "Ingest", icon: Target, desc: "Capture leads from social, web, and walk-ins instantly.", img: "https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg" },
@@ -377,7 +378,7 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Swipe hint — mobile only */}
+          {/* Swipe hint â€” mobile only */}
           <div className="flex md:hidden items-center justify-center gap-2 mt-4 text-neutral-600">
             <ArrowRight className="w-4 h-4 -scale-x-100" />
             <span className="font-mono text-[10px] uppercase tracking-[0.3em]">Swipe</span>
@@ -423,7 +424,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-base sm:text-lg text-neutral-400 max-w-sm mb-6 md:mb-8 leading-relaxed"
             >
-              The entire FlexCore operating system in your pocket. Manage staff, check revenue, and approve workflows — wherever you are on the planet.
+              The entire FlexCore operating system in your pocket. Manage staff, check revenue, and approve workflows â€” wherever you are on the planet.
             </motion.p>
 
             <motion.div
@@ -477,7 +478,7 @@ export default function Home() {
               {/* Glow */}
               <div className="absolute w-40 h-6 bg-[#E11D48] opacity-25 blur-2xl -bottom-4 left-1/2 -translate-x-1/2 rounded-full" />
 
-              {/* Floating stat — left (hidden on very small screens) */}
+              {/* Floating stat â€” left (hidden on very small screens) */}
               <motion.div
                 animate={{ y: [0, -8, 0] }}
                 transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
@@ -485,10 +486,10 @@ export default function Home() {
               >
                 <p className="text-[8px] text-neutral-500 uppercase tracking-wider font-mono">Active Members</p>
                 <p className="text-base font-black text-white font-mono">1,284</p>
-                <p className="text-[8px] text-green-400 font-mono">▲ 12% today</p>
+                <p className="text-[8px] text-green-400 font-mono">â–² 12% today</p>
               </motion.div>
 
-              {/* Floating stat — right (hidden on very small screens) */}
+              {/* Floating stat â€” right (hidden on very small screens) */}
               <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut", delay: 0.5 }}
@@ -499,7 +500,7 @@ export default function Home() {
                 <p className="text-[8px] text-white/60 font-mono">right now</p>
               </motion.div>
 
-              {/* Phone shell — scales with viewport */}
+              {/* Phone shell â€” scales with viewport */}
               <div
                 className="relative shadow-[0_40px_120px_rgba(0,0,0,0.9),0_0_0_1px_rgba(255,255,255,0.1)]"
                 style={{
@@ -527,7 +528,7 @@ export default function Home() {
                   style={{ borderRadius: 'clamp(28px, 6vw, 42px)' }}
                 >
                   <video
-                    src="/equipment-video.mp4"
+                    src={asset("/equipment-video.mp4")}
                     autoPlay
                     loop
                     muted
@@ -582,7 +583,7 @@ export default function Home() {
                       </div>
                       <div className="flex justify-between mt-1">
                         <span className="text-[8px] text-neutral-500 font-mono">72% of goal</span>
-                        <span className="text-[8px] text-[#E11D48] font-mono font-bold">+8.4% ▲</span>
+                        <span className="text-[8px] text-[#E11D48] font-mono font-bold">+8.4% â–²</span>
                       </div>
                     </div>
                   </div>
@@ -606,7 +607,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Mobile: horizontal snap carousel · Desktop: 3-col grid */}
+          {/* Mobile: horizontal snap carousel Â· Desktop: 3-col grid */}
           <div className="flex items-start md:grid md:grid-cols-3 md:items-stretch gap-6 md:gap-8 max-w-6xl mx-auto overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-6 px-6 md:mx-auto md:px-0 pt-5 pb-6 md:py-0 scrollbar-hide">
             {[
               { name: 'Starter', price: '$199', desc: 'Essential tools for boutique studios.', features: ['Up to 500 members', 'Class scheduling', 'Automated billing', 'Email support'] },
@@ -680,7 +681,7 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Swipe hint — mobile only */}
+          {/* Swipe hint â€” mobile only */}
           <div className="flex md:hidden items-center justify-center gap-2 mt-4 text-neutral-600">
             <ArrowRight className="w-4 h-4 -scale-x-100" />
             <span className="font-mono text-[10px] uppercase tracking-[0.3em]">Swipe</span>
@@ -820,7 +821,7 @@ export default function Home() {
                 <div className="w-3 h-3 rounded-full bg-yellow-500" />
                 <div className="w-3 h-3 rounded-full bg-green-500" />
               </div>
-              <span className="font-mono text-[11px] text-white/30 tracking-widest uppercase">flexcore — command center v3.1</span>
+              <span className="font-mono text-[11px] text-white/30 tracking-widest uppercase">flexcore â€” command center v3.1</span>
               <div className="flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
                 <span className="font-mono text-[10px] text-green-500 uppercase tracking-widest">System Online</span>
@@ -855,7 +856,7 @@ export default function Home() {
                 <p className="font-mono text-[10px] text-white/30 uppercase tracking-widest mb-2">Live Activity Feed</p>
                 {[
                   { time: "just now", event: "New member signed up", gym: "Iron Temple NYC", color: "bg-green-500" },
-                  { time: "2m ago", event: "Class booked — HIIT Extreme", gym: "FitZone LA", color: "bg-blue-500" },
+                  { time: "2m ago", event: "Class booked â€” HIIT Extreme", gym: "FitZone LA", color: "bg-blue-500" },
                   { time: "5m ago", event: "Payment processed $299", gym: "PowerHouse ATL", color: "bg-[#E11D48]" },
                   { time: "9m ago", event: "Staff shift updated", gym: "Core Studios SF", color: "bg-yellow-500" },
                   { time: "14m ago", event: "Equipment check completed", gym: "Flex Arena MIA", color: "bg-purple-500" },
@@ -899,7 +900,7 @@ export default function Home() {
 
                 {/* Big number */}
                 <div className="mt-auto pt-4 border-t border-white/10">
-                  <p className="text-xs text-neutral-500 uppercase tracking-wider mb-1 font-mono">Active Members — Global</p>
+                  <p className="text-xs text-neutral-500 uppercase tracking-wider mb-1 font-mono">Active Members â€” Global</p>
                   <p className="text-5xl font-black text-white font-mono">128<span className="text-[#E11D48]">K</span></p>
                   <div className="flex items-center gap-2 mt-2">
                     <div className="h-1.5 flex-1 bg-white/10 rounded-full overflow-hidden">

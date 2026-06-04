@@ -1,16 +1,19 @@
+import { asset } from "@/lib/asset"
 import { SidebarProvider, SidebarTrigger, SidebarInset } from "@/components/ui/sidebar"
 import { ClientSidebar } from "@/components/client-sidebar"
+import { PrivacyPolicyGate } from "@/components/privacy-policy-gate"
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
     return (
         <SidebarProvider>
+            <PrivacyPolicyGate />
             <ClientSidebar />
             <SidebarInset className="bg-background flex flex-col transition-all duration-300 ease-in-out relative min-h-screen">
                 {/* Global Background Image */}
                 <div
                     className="fixed inset-0 z-0 pointer-events-none opacity-80"
                     style={{
-                        backgroundImage: 'url(/dashboard-bg.png)',
+                        backgroundImage: `url(${asset("/dashboard-bg.png")})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat',

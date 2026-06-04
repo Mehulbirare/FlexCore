@@ -1,6 +1,19 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Construction } from "lucide-react"
 
+// Pre-render the placeholder routes linked from the client sidebar so the
+// static export (output: "export") knows which pages to generate.
+export function generateStaticParams() {
+    return [
+        { slug: "workouts" },
+        { slug: "nutrition" },
+        { slug: "schedule" },
+        { slug: "progress" },
+        { slug: "profile" },
+        { slug: "settings" },
+    ]
+}
+
 export default async function ClientPlaceholderPage({
     params,
 }: {

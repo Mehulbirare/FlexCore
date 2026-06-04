@@ -1,5 +1,6 @@
 "use client"
 
+import { asset } from "@/lib/asset"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { MOCK_FINANCE } from "@/lib/mock-data"
@@ -15,7 +16,7 @@ export default function FinancePage() {
             <div
                 className="absolute inset-0 z-0 opacity-15 pointer-events-none"
                 style={{
-                    backgroundImage: 'url(/finance-bg.png)',
+                    backgroundImage: `url(${asset("/finance-bg.png")})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}
@@ -27,7 +28,7 @@ export default function FinancePage() {
                     <div className="flex animate-infinite-scroll whitespace-nowrap gap-6 md:gap-12 text-[10px] md:text-xs font-mono font-bold text-[#E11D48] uppercase tracking-wider">
                         {Array.from({ length: 10 }).map((_, i) => (
                             <span key={i} className="flex items-center gap-2">
-                                <Activity className="h-3 w-3" /> FLEXCOIN MARKET CAP: $4.2M <span className="text-emerald-500">▲ 2.4%</span>
+                                <Activity className="h-3 w-3" /> FLEXCOIN MARKET CAP: $4.2M <span className="text-emerald-500">â–² 2.4%</span>
                                 <span className="text-white/20 mx-4">|</span>
                                 <span>DAILY REVENUE VELOCITY: 118%</span>
                             </span>

@@ -1,5 +1,6 @@
 "use client"
 
+import { asset } from "@/lib/asset"
 import { useState, useRef } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
@@ -73,7 +74,7 @@ export default function SettingsPage() {
                             >
                                 Upload New Visual
                             </Button>
-                            <p className="text-[10px] text-neutral-500 mt-2 uppercase tracking-wide">Max Size: 2MB • Format: PEG, PNG</p>
+                            <p className="text-[10px] text-neutral-500 mt-2 uppercase tracking-wide">Max Size: 2MB â€¢ Format: PEG, PNG</p>
                         </div>
                     </div>
                     <div className="space-y-4">
@@ -208,7 +209,7 @@ export default function SettingsPage() {
             <div
                 className="absolute inset-0 z-0 opacity-20 pointer-events-none"
                 style={{
-                    backgroundImage: 'url(/settings-bg.png)',
+                    backgroundImage: `url(${asset("/settings-bg.png")})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}
