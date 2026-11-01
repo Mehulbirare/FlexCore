@@ -13,7 +13,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
                 <div
                     className="fixed inset-0 z-0 pointer-events-none opacity-80"
                     style={{
-                        backgroundImage: `url(${asset("/dashboard-bg.png")})`,
+                        backgroundImage: `url(${asset("/finance-bg.png")})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         backgroundRepeat: 'no-repeat',

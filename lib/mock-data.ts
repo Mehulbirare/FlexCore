@@ -6,7 +6,7 @@ export const MOCK_USER = {
     password: "admin", // In a real app never store cleartext, this is just for mock logic
     name: "Admin User",
     role: "admin",
-    avatar: asset("/avatars/01.png")
+    avatar: asset("/members/alice.png")
 };
 
 export const MOCK_DASHBOARD_DATA = {

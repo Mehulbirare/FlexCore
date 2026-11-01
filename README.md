@@ -184,6 +184,12 @@ FlexCore uses Supabase for authentication and database operations. To connect yo
 2. Copy your **Project URL** and **API Key** (anon) from the Supabase dashboard.
 3. Add them to your `.env.local` file using the variable names defined in `.env.example`.
 
+### GitHub Pages media
+
+Static images and videos must be committed inside `public/`. Video files such
+as `public/arena-video.mp4` are no longer ignored by Git, and the Pages
+workflow automatically builds URLs with the `/FlexCore` base path.
+
 ---
 
 ## Project Structure

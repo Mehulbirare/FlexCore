@@ -20,7 +20,7 @@ export default function InventoryPage() {
             <div
                 className="absolute inset-0 z-0 opacity-10 pointer-events-none"
                 style={{
-                    backgroundImage: `url(${asset("/inventory-bg.png")})`,
+                    backgroundImage: `url(${asset("/inventory/dumbbells.png")})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}

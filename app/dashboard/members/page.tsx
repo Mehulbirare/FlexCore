@@ -25,7 +25,7 @@ export default function MembersPage() {
             <div
                 className="absolute inset-0 z-0 opacity-20 pointer-events-none"
                 style={{
-                    backgroundImage: `url(${asset("/members-bg.png")})`,
+                    backgroundImage: `url(${asset("/members/alice.png")})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}
