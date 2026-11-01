@@ -1,6 +1,7 @@
 "use client"
 
 import { asset } from "@/lib/asset"
+import { MediaVideo } from "@/components/media-video"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { motion, AnimatePresence } from "framer-motion"
@@ -45,8 +46,10 @@ export default function Home() {
       <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
         {/* Full-screen Background Video */}
         <div className="absolute inset-0 z-0">
-          <video
+          <MediaVideo
             src={asset("/arena-video.mp4")}
+            fallbackImage={asset("/finance-bg.png")}
+            fallbackAlt="FlexCore training arena"
             autoPlay
             loop
             muted
@@ -217,8 +220,10 @@ export default function Home() {
               className="h-[350px] md:h-full md:col-span-3 relative overflow-hidden group border border-white/5 rounded-none cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
             >
               {/* Video Component */}
-              <video
+              <MediaVideo
                 src={asset("/community-video.mp4")}
+                fallbackImage={asset("/members/alice.png")}
+                fallbackAlt="FlexCore community"
                 autoPlay
                 loop
                 muted
@@ -278,8 +283,10 @@ export default function Home() {
               whileHover={{ scale: 0.99 }}
               className="h-[350px] md:h-full md:col-span-1 relative overflow-hidden group border border-white/5 rounded-none cursor-pointer shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
             >
-              <video
+              <MediaVideo
                 src={asset("/7986045-uhd_2160_3840_30fps.mp4")}
+                fallbackImage={asset("/inventory/dumbbells.png")}
+                fallbackAlt="FlexCore equipment"
                 autoPlay
                 loop
                 muted
@@ -527,8 +534,10 @@ export default function Home() {
                   className="relative overflow-hidden bg-black w-full h-full"
                   style={{ borderRadius: 'clamp(28px, 6vw, 42px)' }}
                 >
-                  <video
+                  <MediaVideo
                     src={asset("/equipment-video.mp4")}
+                    fallbackImage={asset("/trainers/john-doe.png")}
+                    fallbackAlt="FlexCore equipment preview"
                     autoPlay
                     loop
                     muted
